@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import decode from 'jwt-decode'
 
 // import Home from './Home';
 import Register from './Register'
 import Login from './Login'
-
+import ViewComment from '../containers/ViewComment'
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token')
@@ -28,20 +28,18 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         <Component {...props} />
       ) : (
         <Redirect
-          to={{
-            pathname: '/login',
-          }}
+          to="/login"
         />
       ))}
   />
 )
 
 export default () => (
-  <BrowserRouter>
+  <HashRouter>
     <Switch>
-      
+      <PrivateRoute path="/" exact component={ViewComment} />
       <Route path="/register" exact component={Register} />
       <Route path="/login" exact component={Login} />
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 )
