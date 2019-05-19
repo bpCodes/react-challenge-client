@@ -100,25 +100,35 @@ const Form = styled.form`
   color: #707070;
   flex: 1;
   position: relative;
+  text-align: center;
 `
 const Title = styled.h2`
   color: #707070;
   flex: 1;
-  position: relative;
+  padding: 1em;
+  width: 100%;
+  margin: 0;
+  text-align: center;
 `
-
 const Input = styled.input`
   width: 100%;
   border: none;
-  &:disabled {
-    background-color: white;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 2em 1em;
+  margin: 3em 0;
+`
+const Button = styled.button`
+  background-color: #49ccb0;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.5em;
+  padding: 0.5em 3em;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 3px 25px 0 #00000047;
   }
 `
-
-const Button = styled.button`
-  box-shadow: 1px 1px 1px 1px black;
-`
-
 const Message = styled.p`
   color: orangered;
 `
@@ -126,7 +136,10 @@ const Message = styled.p`
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
+  margin: 10vh auto 0 auto;
+  box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.5);
+  padding: 5vw;
 `
 
 const registerMutation = gql`
